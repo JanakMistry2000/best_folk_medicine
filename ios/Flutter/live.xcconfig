@@ -1,0 +1,14 @@
+//
+//  live.xcconfig
+//  Runner
+//
+//  Created by Janak Mistry on 09/02/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
+#include "Generated.xcconfig"
+
+FLUTTER_TARGET=/Users/janak.mistry/StudioProjects/best_folk_medicine/lib/main.dart
+APP_NAME = Best folk medicine
