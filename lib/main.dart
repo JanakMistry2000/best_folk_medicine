@@ -1,69 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:logging/logging.dart';
+import 'package:provider/provider.dart';
+
+import 'apis/api_services.dart';
+import 'flavor_config.dart';
+import 'routes.dart';
+import 'strings.dart';
+import "utils.dart";
+import 'views/article_detail.dart';
+import 'views/articles_detail_live.dart';
+import 'views/homepage.dart';
+import 'views/set_theme.dart';
+import 'views/show_all_article.dart';
+import 'views/splash_screen.dart';
+
+final RouteObserver<ModalRoute<void>> routeObserver =
+    RouteObserver<ModalRoute<void>>();
 
 void main() {
+  FlavorConfig(
+      flavor: Flavor.LIVE,
+      flavorColor: FlavorColor(),
+      globalKey: MyAppState.gkey,
+      baseUrl: AppString.baseUrl);
+  _setupLogging();
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+void _setupLogging() {
+  Logger.root.level = Level.ALL;
+  Logger.root.onRecord.listen((rec) {
+    print('${rec.level.name}: ${rec.time}: ${rec.message}');
+  });
+}
+
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Best Folk Medicine',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Best Folk Medicine'),
-    );
-  }
+  State<MyApp> createState() => MyAppState();
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class MyAppState extends State<MyApp> {
+  static GlobalKey<MyAppState> gkey = GlobalKey<MyAppState>();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+    return Provider(
+      create: (_) => ArticleApiService.create(),
+      dispose: (_, ArticleApiService services) => services.client.dispose(),
+      child: MaterialApp(
+        title: AppString.appname,
+        theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Playfair'),
+        navigatorKey: Utils.mainappnavi,
+        routes: {
+          AppRoutes.articledetail: (context) => const ArticleDetail(),
+          AppRoutes.articledetaillive: (context) => const ArticleDetailLive(),
+          AppRoutes.homepage: (context) => const HomePage(),
+          AppRoutes.setheme: (context) => const SetTheme(),
+          AppRoutes.showall: (context) => const ShowAllArticles()
+        },
+        home: const SplashScreen(),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
