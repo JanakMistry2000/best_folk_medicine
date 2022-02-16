@@ -25,6 +25,22 @@ apply plugin: 'com.android.application'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
+
+    flavorDimensions "app"
+
+    productFlavors {
+        dev {
+            dimension "app"
+            applicationId "com.example.best_folk_medicine.dev"
+            resValue "string", "app_name", "DEV Best Folk Medicine"
+        }
+        live {
+            dimension "app"
+            applicationId "com.example.best_folk_medicine"
+            resValue "string", "app_name", "Best Folk Medicine"
+        }
+    }
+
     compileSdkVersion flutter.compileSdkVersion
 
     compileOptions {
