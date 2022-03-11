@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Awesome & comfy: Istanbul Airport has Sleeping Pods Which Travelers can rent for a nap",
+    "urlToImage": "lib/assets/images/sleepod.jpeg",
+    "author": "unknown",
+    "category": "Interesting",
+    "publishedAt": "20-01-2022",
+    "description": ""
+  },
+  {
+    "id": 2,
+    "title": "The Sweetest Act of Kindness: Electrical Company Pays a Boy for His Help",
+    "urlToImage": "lib/assets/images/electric_company.jpeg",
+    "author": "unknown",
+    "category": "Interesting",
+    "publishedAt": "20-01-2022",
+    "description": ""
+  },
+  {
+    "id": 3,
+    "title": "Amazing New Jersey Brothers Walk to California & Raise $70,000 for Restaurant Workers",
+    "urlToImage": "lib/assets/images/brothers_walk.jpeg",
+    "author": "unknown",
+    "category": "Interesting",
+    "publishedAt": "27-12-2021",
+    "description": "Near the end of the 2021 summer, two brothers set off on an epic journey that had an amazing goal; to see the US and help those in need."
+  },
+  {
+    "id": 4,
+    "title": "Dunkin' Donuts Customer Gives an Employee a New Home so that She Keeps Up with the Excellent Customer Service",
+    "urlToImage": "lib/assets/images/dunkin_donuts.jpeg",
+    "author": "asdsad",
+    "category": "Interesting",
+    "publishedAt": "26-12-2021",
+    "description": "This Dunkin' Donuts employee in Ohio got the surprise of a lifetime from one very loyal customer. The friendship of Suzanne Burke and Ebony Johnson started at the drive-thru where Johnson worked several years ago."
+  },
+  {
+    "id": 5,
+    "title": "World's Most Premature Baby Defies 1 Percent Survival Odds & Breaks the Guinness Record",
+    "urlToImage": "lib/assets/images/baby.jpeg",
+    "author": "Unknown",
+    "category": "Life",
+    "publishedAt": "26-12-2021",
+    "description":  "Michelle Butler was 21 weeks pregnant with her twins (boy and girl) when she felt contractions. Her sister drove her to the hospital and Butler prayed for contractions to stop."
+  },
+  {
+    "id": 6,
+    "title": "31-Year-Old Man Invited an 89-Year-Old Neighbour to Live with Him & Spend Her Last Days Together",
+    "urlToImage": "lib/assets/images/neighbour.jpeg",
+    "author": "Unknown",
+    "category": "Interesting",
+    "publishedAt": "05-12-2021",
+    "description":  "This is the most amazing story about an unusual friendship that lasted shortly but brought so much positivity and happiness. It's touching and inspiring. It shows the power of kindness."
+  }
+]
